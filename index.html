@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💌 Decode My Heart</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #001f3f 0%, #0a3d62 50%, #1e5799 100%);
+      font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+      text-align: center;
+      color: #d9e6ff;
+      padding: 2rem 1rem;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-attachment: fixed;
+    }
+    h1 {
+      font-size: 2.7rem;
+      margin: 1.2rem 0 1.8rem;
+      color: #40c4ff;
+      text-shadow: 0 0 15px rgba(64, 196, 255, 0.5);
+      font-weight: 600;
+    }
+    p.intro {
+      font-size: 1.3rem;
+      line-height: 1.6;
+      max-width: 700px;
+      margin: 0 auto 2.2rem;
+      color: #b3d4ff;
+    }
+    .heart { color: #ff4081; }
+    button {
+      background: #0d47a1;
+      color: #ffffff;
+      border: none;
+      padding: 1rem 2.2rem;
+      font-size: 1.2rem;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.4);
+      transition: all 0.4s ease;
+      margin: 1.2rem 0;
+    }
+    button:hover {
+      background: #1565c0;
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    }
+    button:disabled {
+      background: #424242;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+    .message-container {
+      min-height: 220px;
+      width: 100%;
+      max-width: 760px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .message {
+      padding: 1.8rem 2.5rem;
+      background: rgba(0, 51, 102, 0.85);
+      border-radius: 28px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      max-width: 92%;
+      color: #b3e0ff;
+      font-size: 1.3rem;
+      line-height: 1.7;
+      display: none;
+      border: 1px solid #40c4ff;
+      font-weight: bold;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+    }
+    .message.visible {
+      display: block;
+    }
+    .strong-love {
+      color: #b3e0ff;
+      font-weight: bold;
+      font-size: 1.6rem;
+    }
+
+    /* Updated final love screen */
+    #final-love {
+      display: none;
+      width: 100%;
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 2.5rem 1.8rem;
+      background: rgba(0, 35, 80, 0.75);
+      border-radius: 30px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    #final-love.visible {
+      display: flex;
+    }
+    .iloveyou-text {
+      font-size: 8rem;
+      font-weight: 900;
+      color: #ff4d88;
+      text-shadow: 0 0 30px #ff4d88aa, 0 0 60px #ff4d8866;
+      letter-spacing: -2px;
+      line-height: 0.9;
+      flex: 1 1 50%;
+      min-width: 320px;
+      text-align: center;
+    }
+    .his-photo {
+      max-width: 45%;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 8px solid #40c4ff66;
+      box-shadow: 0 0 40px rgba(64, 196, 255, 0.5);
+      flex: 1 1 40%;
+      min-width: 280px;
+      max-width: 100%;
+      height: auto;
+      max-height: 80vh;
+      object-fit: contain;
+      border-radius: 50%;
+      border: 8px solid #40c4ff66;
+      box-shadow: 0 0 40px rgba(64, 196, 255, 0.5);
+    }
+
+    @media (max-width: 768px) {
+      #final-love {
+        flex-direction: column;
+        gap: 2.5rem;
+        padding: 2rem 1rem;
+      }
+      .iloveyou-text {
+        font-size: 6rem;
+      }
+      .his-photo {
+        max-width: 70%;
+        min-width: 260px;
+        max-width: 85%;
+        max-height: 70vh;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .iloveyou-text {
+        font-size: 4.8rem;
+      }
+      .his-photo {
+        max-width: 80%;
+        max-width: 90%;
+        max-height: 65vh;
+      }
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2.2rem; }
+      p.intro, .message { font-size: 1.15rem; }
+      .message { padding: 1.4rem 1.8rem; }
+      button { padding: 0.9rem 2rem; font-size: 1.1rem; width: 88%; max-width: 360px; }
+      .iloveyou-text { font-size: 4.5rem; }
+      .his-photo { width: 400px; height: 400px; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Decode My Heart: A Sophisticated Overload of Cheese (Proceed at Your Own Risk, Sir)</h1>
+
+  <p class="intro">
+  Normal words? They chickened out, turned fifty shades of pink, and literally ghosted me mid-sentence! 👻💕<br>
+  So I had to smuggle my feelings into sneaky little code boxes instead.<br>
+  So click carefully, handsome... Trust me,my heart is already doing somersaults and backflips just thinking about you reading this… 💙🫶</p>
+
+  <button id="revealBtn" onclick="decodeNext()">Reveal Next Layer of Cheese</button>
+
+  <div class="message-container">
+    <div class="message" id="msg1">
+      <p>How you make me feel safe to be myself🥰<br>
+"With you, I don’t have to perform or pretend. You’ve created a space where I can be soft, silly, emotional, or quiet and you still look at me like I’m your favorite person. That freedom you give me is pure magic."</p>
+    </div>
+
+    <div class="message" id="msg2">
+      <p>Your silent strength💪<br>
+"I watch how you carry so much without complaining. How you stand firm when everything is shaking. But the most beautiful part is when you let yourself be soft with me. That combination of strength and tenderness… it makes me feel safe in a way no one else ever has."</p>
+    </div>
+
+    <div class="message" id="msg3">
+      <p>How you pay attention even to the little things🥹✨<br>
+"You remember how I like my snacks,You can immediately tell when i'm not okay. You hold every small detail of me like it’s precious. That kind of attention makes me feel truly seen."💕</p>
+    </div>
+
+    <div class="message" id="msg4">
+      <p class="strong-love">I love you.❤️✨<br>
+      Not the Instagram-filter, perfect lighting kind.<br>
+      The messy hair in the morning, laugh-until-we-cry, "the one that will see you at your worst and still choose you" kind 💕<br>
+    </p>
+    </div>
+
+    <div class="message" id="msg5">
+      <p>Your quiet sacrifices💕<br>
+"I notice the things you give up sometimes without ever mentioning;sleep, time, comfort. You are always willing to show up  for me.And that selfless love breaks and heals my heart all at once."</p>
+    </div>
+
+    <div class="message" id="msg6">
+      <p>I don’t say it enough but thank you for choosing my chaos every single day. For laughing when I’m ridiculous, for holding me when I’m quiet, for still looking at me like I hung the moon even when I’m a complete mess. You’re my safe place in human form. 🌙✨
+        </p>
+    </div>
+
+    <div class="message" id="msg7">
+      <p>And finally...I almost forgot this!😄🥹😘<br>
+        I love  it when I catch you looking at me with that look in your eyes that says "I can’t believe I get to have you." It’s like you’re still surprised that I’m yours, and that makes me feel like the luckiest person alive.💙</p>
+    </div>
+  </div>
+
+  <!-- Final huge I LOVE YOU + your photo (updated size) -->
+  <div id="final-love">
+    <div class="iloveyou-text">I LOVE<br>YOU<br><br>💗</div>
+    <img 
+      class="his-photo" 
+      src="https://i.postimg.cc/nLGG536c/us.png" 
+      alt="Us ❤️"
+    >
+  </div>
+
+  <script>
+    const messages = [
+      document.getElementById('msg1'),
+      document.getElementById('msg2'),
+      document.getElementById('msg3'),
+      document.getElementById('msg4'),
+      document.getElementById('msg5'),
+      document.getElementById('msg6'),
+      document.getElementById('msg7')
+    ];
+    let current = -1;
+    const btn = document.getElementById('revealBtn');
+    const finalLove = document.getElementById('final-love');
+
+    function decodeNext() {
+      if (current >= 0 && current < messages.length) {
+        messages[current].classList.remove('visible');
+      }
+
+      current++;
+
+      if (current < messages.length) {
+        messages[current].classList.add('visible');
+      } else {
+        // All messages done → show huge I LOVE YOU screen
+        document.querySelector('.message-container').style.display = 'none';
+        document.querySelector('h1').style.display = 'none';
+        document.querySelector('p.intro').style.display = 'none';
+        finalLove.classList.add('visible');
+        btn.textContent = "Fully Decoded... Now Come Claim Your Heart 💙";
+        btn.disabled = true;
+      }
+    }
+  </script>
+
+</body>
+</html>
