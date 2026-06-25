@@ -1,2 +1,2 @@
-# decode-my-heart
+# Decode-my-heart
 Just a small reminder that you are cherished...
